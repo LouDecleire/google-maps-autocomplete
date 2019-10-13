@@ -1,6 +1,6 @@
-<mat-form-field class="full-width" [appearance]="appearance">
-  <mat-label>{{addressLabelText}}</mat-label>
-  <input matInput
+<div class="full-width">
+  <label for="googleMapsAutocomplete">{{addressLabelText}}</label>
+  <input id="googleMapsAutocomplete"
          [(ngModel)]="address"
          (change)="onQuery($event)"
          placeholder="{{placeholderText}}"
@@ -8,10 +8,10 @@
          #search
          MatValidateAddress
          required>
-  <mat-error *ngIf="addressSearchControl.hasError('required')">
+  <div *ngIf="addressSearchControl.hasError('required')" class="error">
     {{requiredErrorText}}
-  </mat-error>
-  <mat-error *ngIf="addressSearchControl.hasError('validateAddress')">
+  </div>
+  <div *ngIf="addressSearchControl.hasError('validateAddress')" class="error">
     {{invalidErrorText}}
-  </mat-error>
-</mat-form-field>
+  </div>
+</div>
