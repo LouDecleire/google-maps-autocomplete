@@ -6,13 +6,6 @@ import {Location} from '../interfaces/location.interface';
 import PlaceResult = google.maps.places.PlaceResult;
 import AutocompleteOptions = google.maps.places.AutocompleteOptions;
 
-export enum Appearance {
-  STANDARD = 'standard',
-  FILL = 'fill',
-  OUTLINE = 'outline',
-  LEGACY = 'legacy',
-}
-
 @Component({
   selector: 'mat-google-maps-autocomplete',
   exportAs: 'matGoogleMapsAutocomplete',
@@ -35,9 +28,6 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
 
   @Input()
   invalidErrorText = 'The address is not valid';
-
-  @Input()
-  appearance: string | Appearance = Appearance.STANDARD;
 
   @Input()
   address: PlaceResult | string;
