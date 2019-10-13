@@ -12,7 +12,7 @@ import {
 /** Loads the full version from the given Angular package gracefully. */
 function loadPackageVersionGracefully(context: SchematicContext): string | null {
   try {
-    context.logger.log('info', `🧟‍ @angular-material-extensions/google-maps-autocomplete
+    context.logger.log('info', `🧟‍ @lou-decleire/google-maps-autocomplete
      is using the following version ${require(`../../package.json`).version}`);
     return require(`../../package.json`).version;
   } catch {
@@ -31,7 +31,7 @@ export function addPackageJsonDependencies(): Rule {
       {
         type: NodeDependencyType.Default,
         version: loadPackageVersionGracefully(context) || 'latest',
-        name: '@angular-material-extensions/google-maps-autocomplete'
+        name: '@lou-decleire/google-maps-autocomplete'
       },
       {type: NodeDependencyType.Default, version: '^1.0.0-beta.7', name: '@agm/core'},
       {type: NodeDependencyType.Default, version: '^3.37.0', name: '@types/googlemaps'},
@@ -68,7 +68,7 @@ export function addModuleToImports(options: any): Rule {
     const moduleName = 'MatGoogleMapsAutocompleteModule';
     const agmCoreModule = 'AgmCoreModule.forRoot()';
 
-    addModuleImportToRootModule(host, moduleName, '@angular-material-extensions/google-maps-autocomplete', project);
+    addModuleImportToRootModule(host, moduleName, '@lou-decleire/google-maps-autocomplete', project);
     addModuleImportToRootModule(host, agmCoreModule, '@agm/core', project);
     context.logger.log('info', `✅️ "${moduleName}" is imported`);
 
